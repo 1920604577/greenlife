@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hln.core.mapper.UserMapper">
+
+
+    <!-- 此处预留一个参考 这里的指定方式可以让mybatis返回自动生成的主键id -->
+<!--    <insert id="userReg" parameterType="com.gsxy.core.pojo.User" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into-->
+<!--            user-->
+<!--            (username,student_id,password,create_time,create_by)-->
+<!--        values-->
+<!--            (#{username},#{studentId},#{password},#{createTime},#{createBy})-->
+<!--    </insert>-->
+
+</mapper>
