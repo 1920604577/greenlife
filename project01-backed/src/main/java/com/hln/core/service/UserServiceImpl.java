@@ -40,10 +40,14 @@ public class UserServiceImpl implements UserService{
             user = userMapper.userLogin(userLoginBo);
             if (user == null)
             {
-                return ResponseVo.builder()
-                        .code(ERROR_CODE)
-                        .message("手机号或密码错误")
-                        .build();
+                // TODO 验证码校验
+                if (!userLoginBo.getMobileCode().equals("123456"))
+                {
+                    return ResponseVo.builder()
+                            .code(ERROR_CODE)
+                            .message("验证码错误")
+                            .build();
+                }
             }
         }
 
