@@ -14,4 +14,21 @@
 <!--            (#{username},#{studentId},#{password},#{createTime},#{createBy})-->
 <!--    </insert>-->
 
+    <select id="userLogin" resultType="com.hln.core.pojo.Users">
+        select
+            id,username,email,phone,password,address,eco_score,created_at,updated_at
+        from
+            user
+        where
+            <if test="email != null and email != ''">
+                email = #{email} and
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone} and
+            </if>
+            password = #{password}
+        and
+            del_flag = 0
+    </select>
+
 </mapper>
