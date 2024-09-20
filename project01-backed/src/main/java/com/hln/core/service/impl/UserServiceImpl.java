@@ -1,10 +1,11 @@
-package com.hln.core.service;
+package com.hln.core.service.impl;
 
 import com.hln.core.mapper.UserMapper;
 import com.hln.core.pojo.Users;
 import com.hln.core.pojo.bo.UserLoginBo;
 import com.hln.core.pojo.vo.ResponseVo;
 import com.hln.core.pojo.vo.UserAndTokenVo;
+import com.hln.core.service.UserService;
 import com.hln.core.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ import static com.hln.core.pojo.enums.LoginTypeEnum.MOBILE;
 import static com.hln.core.pojo.enums.MessageValues.SUCCESS_MESSAGE;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
