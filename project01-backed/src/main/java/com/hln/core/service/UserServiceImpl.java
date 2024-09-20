@@ -6,12 +6,13 @@ import com.hln.core.pojo.bo.UserLoginBo;
 import com.hln.core.pojo.vo.ResponseVo;
 import com.hln.core.pojo.vo.UserAndTokenVo;
 import com.hln.core.util.JwtUtil;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.hln.core.pojo.enums.CodeValues.ERROR_CODE;
 import static com.hln.core.pojo.enums.CodeValues.SUCCESS_CODE;
+import static com.hln.core.pojo.enums.LoginTypeEnum.EMAIL;
+import static com.hln.core.pojo.enums.LoginTypeEnum.MOBILE;
 import static com.hln.core.pojo.enums.MessageValues.SUCCESS_MESSAGE;
 
 @Service
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService{
     public ResponseVo userLogin(UserLoginBo userLoginBo) {
 
         Users user = null;
-        if (userLoginBo.getLoginType().equals("email"))
+        if (userLoginBo.getLoginType().equals(EMAIL))
         {
             user = userMapper.userLogin(userLoginBo);
             if (user == null)
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService{
                         .message("邮箱或密码错误")
                         .build();
             }
-        } else if (userLoginBo.getLoginType().equals("phone"))
+        } else if (userLoginBo.getLoginType().equals(MOBILE))
         {
             user = userMapper.userLogin(userLoginBo);
             if (user == null)
