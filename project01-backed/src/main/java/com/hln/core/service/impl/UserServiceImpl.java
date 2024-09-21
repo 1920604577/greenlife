@@ -1,5 +1,6 @@
 package com.hln.core.service.impl;
 
+import cn.hutool.crypto.digest.MD5;
 import com.hln.core.mapper.UserMapper;
 import com.hln.core.pojo.Users;
 import com.hln.core.pojo.bo.UserLoginBo;

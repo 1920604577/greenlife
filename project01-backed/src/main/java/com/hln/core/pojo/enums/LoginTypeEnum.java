@@ -1,8 +1,8 @@
 package com.hln.core.pojo.enums;
 
-public enum LoginTypeEnum {
+public class LoginTypeEnum {
 
-    EMAIL,//邮箱
-    MOBILE;//手机号
+    public final static String EMAIL = "email";//邮箱
+    public final static String MOBILE = "mobile";//手机号
 
 }
