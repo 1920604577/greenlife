@@ -8,5 +8,8 @@
         INSERT INTO eco_products (name, description, category, price, stock, created_at,updated_at)
         VALUES (#{name}, #{description}, #{category}, #{price}, #{stock}, #{createdAt},#{updatedAt})
     </insert>
+    <select id="selectById" resultType="com.hln.core.pojo.EcoProducts">
+        select * from eco_products where id = #{id}
+    </select>
 
 </mapper>

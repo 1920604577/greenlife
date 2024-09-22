@@ -77,4 +77,23 @@ public class EcoProductServiceImpl implements EcoProductService{
                 .data(null)
                 .build();
     }
+
+    /**
+     * 通过产品id查询产品数据
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseVo getById(Long id) {
+
+        EcoProducts ecoProducts = ecoProductMapper.selectById(id);
+
+        return ResponseVo.builder()
+                .message(SUCCESS_MESSAGE)
+                .code(SUCCESS_CODE)
+                .data(ecoProducts)
+                .build();
+    }
+
+
 }

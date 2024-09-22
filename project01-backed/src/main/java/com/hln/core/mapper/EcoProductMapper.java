@@ -17,4 +17,12 @@ public interface EcoProductMapper {
      * @return
      */
     Long insert(EcoProducts ecoProduct);
+
+    /**
+     * 通过产品id查询产品数据
+     * @author luyiinn 22/9/2024
+     * @param id
+     * @return
+     */
+    EcoProducts selectById(Long id);
 }

@@ -35,7 +35,7 @@ public class EcoProductController {
         log.info("添加环保产品:{}",addEcoProductBo);
         //参数为空
         if(addEcoProductBo == null){
-            JSONArray.toJSONString(
+            return JSONArray.toJSONString(
                     ResponseVo.builder()
                             .message(PARAMETER_MESSAGE)
                             .code(PARAMETER_ERROR)
@@ -45,5 +45,27 @@ public class EcoProductController {
         }
         return JSONArray.toJSONString(ecoProductService.addEcoProduct(addEcoProductBo));
 
+    }
+
+    /**
+     * 添加环保产品
+     * @author luyiinn 22/9/2024
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("添加环保产品")
+    public String getById(@PathVariable Long id){
+        log.info("根据id查询环保产品:{}",id);
+        if(id == null){
+            return JSONArray.toJSONString(
+                    ResponseVo.builder()
+                            .message(PARAMETER_MESSAGE)
+                            .code(PARAMETER_ERROR)
+                            .data(null)
+                            .build()
+            );
+        }
+        return JSONArray.toJSONString(ecoProductService.getById(id));
     }
 }
