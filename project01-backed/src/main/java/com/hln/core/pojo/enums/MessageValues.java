@@ -10,5 +10,6 @@ public class MessageValues {
     public static final String ERROR_ROLE_MESSAGE = "只有社长才有该权限";
     public static final String ERROR_NAME_EMPTY_MESSAGE = "名称不能为空";
     public static final String ERROR_PRICE_EMPTY_MESSAGE = "价格不能为空";
+    public static final String ERROR_DATA_NOT_FOUND_MESSAGE = "要修改的数据不存在";
 
 }

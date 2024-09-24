@@ -8,8 +8,51 @@
         INSERT INTO eco_products (name, description, category, price, stock, created_at,updated_at)
         VALUES (#{name}, #{description}, #{category}, #{price}, #{stock}, #{createdAt},#{updatedAt})
     </insert>
+
+    <update id="update">
+        update eco_products
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="description != null and description != ''">
+                `description` = #{description},
+            </if>
+            <if test="category != null and category != ''">
+                category = #{category},
+            </if>
+            <if test="price != null and price != ''">
+                price = #{price},
+            </if>
+            <if test="stock != null and stock != ''">
+                stock = #{stock},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        delete from eco_products where id = #{id}
+    </delete>
+
     <select id="selectById" resultType="com.hln.core.pojo.EcoProducts">
         select * from eco_products where id = #{id}
+    </select>
+
+    <select id="pageSelect" resultType="com.hln.core.pojo.EcoProducts">
+        select * from eco_products
+        <where>
+            <if test="name != null and name != '' ">
+                and `name` LIKE CONCAT('%',#{name},'%')
+            </if>
+            <if test="category != null and category != ''">
+                and category LIKE CONCAT('%',#{category},'%')
+            </if>
+        </where>
+        limit #{index},#{pageSize};
     </select>
 
 </mapper>
